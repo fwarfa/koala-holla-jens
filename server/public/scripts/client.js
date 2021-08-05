@@ -15,15 +15,9 @@ function setupClickListeners() {
     // get user input and put in an object
     // NOT WORKING YET :(
     // using a test object
-    let koalaToSend = {
-      name: 'testName',
-      age: 'testName',
-      gender: 'testName',
-      readyForTransfer: 'testName',
-      notes: 'testName',
-    };
+    
     // call saveKoala with the new obejct
-    saveKoala( koalaToSend );
+    saveKoala();
   }); 
 }
 
@@ -38,11 +32,19 @@ function getKoalas(){
 function saveKoala( newKoala ){
   console.log( 'in saveKoala', newKoala );
   // ajax call to server to get koalas
+
+  let koalaToSend = {
+    name: 'testName',
+    age: 'testName',
+    gender: 'testName',
+    readyForTransfer: 'testName',
+    notes: 'testName',
+  };
  
 $.ajax({
   method: 'POST',
   url: '/koalas',
-  data: artistToSend
+  data: koalaToSend
 }).then(function(response) {
   console.log("koala client side resp", response);
   //reload the new koalas
@@ -51,4 +53,4 @@ $.ajax({
   console.log('error in artist post', error); 
   alert('Error adding koala. Please try again later.')       
 });
-}
+};

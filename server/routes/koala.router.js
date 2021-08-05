@@ -1,6 +1,7 @@
 const express = require('express');
 const koalaRouter = express.Router();
-const bodyParser = require('../server/server');
+const bodyParser = require('body-parser');
+const { Pool } = require('pg');
 
 // DB CONNECTION
 
@@ -11,12 +12,24 @@ const bodyParser = require('../server/server');
 // POST
 koalaRouter.post('/', (req, res) => {
   let inputDetails = req.body;
+  console.log(inputDetails);
 
-}
+    pool.query(sqlQuery)
+    ${req.body.name}
 
-// PUT
 
 
-// DELETE
+    ${req.body.age}
 
-module.exports = koalaRouter;
+
+    ${req.body.gender}
+
+    ${req.body.readyForTransfer}
+
+
+    <td>
+    ${req.body.notes}
+    </td>
+
+  </tr>`)
+});
