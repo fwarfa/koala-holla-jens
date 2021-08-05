@@ -1,18 +1,19 @@
 const express = require('express');
-const koalaRouter = express.Router();
+const router = express.Router();
 const pg = require('pg');
 
 // DB CONNECTION
 pool = new pg.Pool({
     database: "koala",
-    host: 'localhost',
+    host: 'Localhost',
     port: 5432,
     max: 20,
     idleTimeoutMillis: 4500
 })
 
 // GET
-koalaRouter.get('/', (req, res) => {
+router.get('/', (req, res) => {
+
     let sqlQuery = `
         SELECT * FROM "koala"
     `;
@@ -36,11 +37,13 @@ koalaRouter.put('/', (req, res) => {
         console.log(req.body.name);
         const sqlQuery = `
         UPDATE "koala"
+        SET "name" = $1
+        WHERE "id" = $2
         
     `;
     const sqlParams = [
-        req.body.name,          
-        req.params.id           
+        req.body.name,    //$1      
+        req.params.id     //$2      
     ];
     pool.query(sqlQuery, sqlParams)
         .then((dbRes) => {
@@ -55,4 +58,4 @@ koalaRouter.put('/', (req, res) => {
 
 // DELETE
 
-module.exports = koalaRouter;
+module.exports = router;
