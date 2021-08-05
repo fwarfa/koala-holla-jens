@@ -3,7 +3,6 @@ const koalaRouter = express.Router();
 const pg = require('pg');
 
 // DB CONNECTION
-const pg = require('pg');
 pool = new pg.Pool({
     database: "koala",
     host: 'localhost',
@@ -13,7 +12,7 @@ pool = new pg.Pool({
 })
 
 // GET
-router.get('/', (res, res) => {
+koalaRouter.get('/', (req, res) => {
     let sqlQuery = `
         SELECT * FROM "koala"
     `;
@@ -32,6 +31,26 @@ router.get('/', (res, res) => {
 
 
 // PUT
+koalaRouter.put('/', (req, res) => {
+        console.log(req.params.id);
+        console.log(req.body.name);
+        const sqlQuery = `
+        UPDATE "koala"
+        
+    `;
+    const sqlParams = [
+        req.body.name,          
+        req.params.id           
+    ];
+    pool.query(sqlQuery, sqlParams)
+        .then((dbRes) => {
+            res.sendStatus(200);
+        })
+        .catch((err) => {
+            console.log('UPDATE err', err);
+            res.sendStatus(500);
+        })
+})
 
 
 // DELETE
