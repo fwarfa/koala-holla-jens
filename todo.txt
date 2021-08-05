@@ -17,6 +17,7 @@ CLIENT SIDE
     [] add koala button logic
         [] listener on button
     [] target user inputs 
+    
 SERVER SIDE 
 [] Create a database.sql file to put SQL database
     [] command to create table
