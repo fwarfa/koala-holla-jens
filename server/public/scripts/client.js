@@ -25,11 +25,20 @@ function setupClickListeners() {
     // call saveKoala with the new obejct
     saveKoala( koalaToSend );
   }); 
-  $('#readyToTransferBtn').
+  $(document).on('click', '.readyToTransferBtn', readyToTransfer)
 }
 
 function readyToTransfer() {
-  $(this)
+  let item = $(this)/*get the id of the row/koala, have to see how table is */
+  $.ajax({
+    method: 'PUT',
+    url: `/koalas/${id}`
+  }).then((req, res) => {
+    console.log('Succesfully updated the koala.', res);
+  }).catch((error) => {
+    console.log('/PUT request failed: ', error);
+    alert('Check console for error. PUT request failed.')
+  });
 };
 
 function getKoalas(){
