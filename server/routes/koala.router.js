@@ -1,5 +1,5 @@
 const express = require('express');
-const koalaRouter = express.Router();
+const router = express.Router();
 const bodyParser = require('body-parser');
 const { Pool } = require('pg');
 
@@ -10,26 +10,21 @@ const { Pool } = require('pg');
 
 
 // POST
-koalaRouter.post('/', (req, res) => {
+router.post('/', (req, res) => {
   let inputDetails = req.body;
   console.log(inputDetails);
+  let sqlQuery = `INSERT INTO "koala"
+  ("name", "age", "gender", "ready-for-transfer", "notes") 
+   VALUES ('${req.body.name}', '${req.body.age}', '${req.body.gender}', ${req.body.readyForTransfer}, ${req.body.notes})`
+   pool.query(sqlQuery)
+   .then((res) => {
 
-    pool.query(sqlQuery)
-    ${req.body.name}
+   })
+   .catch((err) => {
+       console.log("we caught an error", err)
+       res.sendStatus(500);
+   })
 
-
-
-    ${req.body.age}
-
-
-    ${req.body.gender}
-
-    ${req.body.readyForTransfer}
-
-
-    <td>
-    ${req.body.notes}
-    </td>
-
-  </tr>`)
 });
+
+module.exports = router;
