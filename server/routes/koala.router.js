@@ -1,10 +1,16 @@
 const express = require('express');
 const router = express.Router();
 const bodyParser = require('body-parser');
-const { Pool } = require('pg');
+const pg = require('pg')
 
 // DB CONNECTION
-
+pool = new pg.Pool({
+    database: "koala",
+    host: 'localhost',
+    port: 5432,
+    max: 20,
+    idleTimeoutMillis: 4500
+})
 
 // GET
 
