@@ -3,16 +3,16 @@ TO DO LIST
 ////// BASE MODE //////
 
 CLIENT SIDE 
-[] GET functionality
-    [] append to the DOM upon load 
-    [] and upon change of info (call function as needed)
-    [] data-id
+[x] GET functionality
+    [x] append to the DOM upon load 
+    [x] and upon change of info (call function as needed)
+    [x] data-id
 [] Create 'ready for transfer' (rft) button
     [] client side logic
         [] capture click
         [] collect id of row or koala clicked
             [] tack id on to url 
-    [] button should only appear for koalas not transfered yet
+    [] button should only appear for koalas not transferred yet
 [] Add koala form
     [] add koala button logic
         [] listener on button
@@ -23,7 +23,7 @@ SERVER SIDE
     [] command to create table
     [] insert data in current inventory
 [] PUT endpoint for 'rft' button
-[] setup database connection
+[x] setup database connection
 [] get endpoints
     [] get koala info to database and send to client
 [] post endpoints
