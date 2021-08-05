@@ -56,5 +56,17 @@ function getKoalas(){
 function saveKoala( newKoala ){
   console.log( 'in saveKoala', newKoala );
   // ajax call to server to get koalas
- 
-}
+  $.ajax({
+    method: 'POST',
+    url: '/koalas',
+    data: koalaToSend
+  }).then(function(response) {
+    console.log("koala client side resp", response);
+    //reload the new koalas
+    getKoalas();
+  }).catch(function(error) {
+    console.log('error in artist post', error); 
+    alert('Error adding koala. Please try again later.')       
+  });
+  };
+
