@@ -25,7 +25,12 @@ function setupClickListeners() {
     // call saveKoala with the new obejct
     saveKoala( koalaToSend );
   }); 
+  $('#readyToTransferBtn').
 }
+
+function readyToTransfer() {
+  $(this)
+};
 
 function getKoalas(){
   console.log( 'in getKoalas' );
