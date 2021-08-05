@@ -1,5 +1,6 @@
 const express = require('express');
 const koalaRouter = express.Router();
+const bodyParser = require('../server/server');
 
 // DB CONNECTION
 
@@ -10,7 +11,7 @@ const koalaRouter = express.Router();
 // POST
 koalaRouter.post('/', (req, res) => {
   let inputDetails = req.body;
-      
+
 }
 
 // PUT
