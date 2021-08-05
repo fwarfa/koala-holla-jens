@@ -33,7 +33,7 @@ function readyToTransfer() {
   $.ajax({
     method: 'PUT',
     url: `/koalas/${id}`
-  }).then((req, res) => {
+  }).then((res) => {
     console.log('Succesfully updated the koala.', res);
   }).catch((error) => {
     console.log('/PUT request failed: ', error);
