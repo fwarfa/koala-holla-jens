@@ -3,7 +3,6 @@ const koalaRouter = express.Router();
 const pg = require('pg');
 
 // DB CONNECTION
-const pg = require('pg');
 pool = new pg.Pool({
     database: "koala",
     host: 'localhost',
