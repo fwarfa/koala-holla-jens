@@ -8,7 +8,10 @@ const koalaRouter = express.Router();
 
 
 // POST
-
+koalaRouter.post('/', (req, res) => {
+  let inputDetails = req.body;
+      
+}
 
 // PUT
 
