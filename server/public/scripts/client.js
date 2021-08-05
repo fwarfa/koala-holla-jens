@@ -29,7 +29,7 @@ function setupClickListeners() {
 }
 
 function readyToTransfer() {
-  let item = $(this)/*get the id of the row/koala, have to see how table is */
+  let item = $(this).closest('tr').data('id')/*get the id of the row/koala, have to see how table is */
   $.ajax({
     method: 'PUT',
     url: `/koalas/${id}`
