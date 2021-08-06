@@ -10,6 +10,7 @@ $( document ).ready( function(){
 }); // end doc ready
 
 function setupClickListeners() {
+  $("#viewKoalas").on('click', '.deleteBttn', deleteFunc);
   $( '#addButton' ).on( 'click', function(){
     console.log( 'in addButton on click' );
     // get user input and put in an object
@@ -64,6 +65,7 @@ function getKoalas(){
               <td>${response[i].ready_for_transfer}</td>
               <td>${response[i].notes}</td>
               <td><button class="readyBtn">Ready for Transfer</button></td>
+              <td><button class="deleteBttn">Delete</button></td>
           </tr>
       `);
     }
@@ -72,3 +74,6 @@ function getKoalas(){
 } // end getKoalas
 
 
+function deleteFunc() {
+  $(this).parent().parent().remove();
+}
