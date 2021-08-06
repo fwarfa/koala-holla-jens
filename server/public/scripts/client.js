@@ -52,6 +52,8 @@ function getKoalas(){
     console.log('get response is ');
     // append to DOM
     for (let i = 0; i < response.length; i++) {
+      console.log(response[i].ready_for_transfer)
+      let transferButton = response[i].ready_for_transfer ? '' : `<button class="readyBtn">Ready for Transfer</button>`;
       $('#viewKoalas').append(`
           <tr data-id=${response[i].id}">
               <td>${response[i].name}</td>
