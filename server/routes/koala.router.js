@@ -51,11 +51,11 @@ router.put('/:id', (req,res) => {
     let sqlQuery = `
         UPDATE "koala" 
         SET "ready_for_transfer" = $1
-        WHERE "ready_for_transfer" = $2
+        WHERE "id" = $2
     `;
     let sqlParams = [
         true,
-        req.body.id
+        req.params.id
     ];
     pool.query(sqlQuery, sqlParams)
         .then((dbRes) => {

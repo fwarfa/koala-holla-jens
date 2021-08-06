@@ -30,11 +30,13 @@ function setupClickListeners() {
 
 function readyToTransfer() {
   let id = $(this).closest('tr').data('id')/*get the id of the row/koala, have to see how table is */
+  console.log('id: ', id)
   $.ajax({
     method: 'PUT',
     url: `/koalas/${id}`
   }).then((res) => {
     console.log('Succesfully updated the koala.', res);
+    getKoalas();
   }).catch((error) => {
     console.log('/PUT request failed: ', error);
     alert('Check console for error. PUT request failed.')
@@ -53,9 +55,9 @@ function getKoalas(){
     // append to DOM
     for (let i = 0; i < response.length; i++) {
       console.log(response[i].ready_for_transfer)
-      let transferButton = response[i].ready_for_transfer ? '' : `<button class="readyBtn">Ready for Transfer</button>`;
+      let transferButton = response[i].ready_for_transfer ? '' : `<button class="readyToTransferBtn">Ready for Transfer</button>`;
       $('#viewKoalas').append(`
-          <tr data-id=${response[i].id}">
+          <tr data-id="${response[i].id}">
               <td>${response[i].name}</td>
               <td>${response[i].age}</td>
               <td>${response[i].gender}</td>
