@@ -8,26 +8,26 @@ CLIENT SIDE
     [x] and upon change of info (call function as needed)
     [x] data-id
 [] Create 'ready for transfer' (rft) button
-    [] client side logic
-        [] capture click
-        [] collect id of row or koala clicked
-            [] tack id on to url 
+    [x] client side logic
+        [x] capture click
+        [x] collect id of row or koala clicked
+            [x] tack id on to url 
     [] button should only appear for koalas not transferred yet
 [] Add koala form
-    [] add koala button logic
-        [] listener on button
+    [x] add koala button logic
+        [dan] listener on button
     [] target user inputs 
     
 SERVER SIDE 
-[] Create a database.sql file to put SQL database
-    [] command to create table
-    [] insert data in current inventory
-[] PUT endpoint for 'rft' button
+[x] Create a database.sql file to put SQL database
+    [x] command to create table
+    [x] insert data in current inventory
+[farah] PUT endpoint for 'rft' button
 [x] setup database connection
-[] get endpoints
-    [] get koala info to database and send to client
-[] post endpoints
-    [] POST koala to database (receive and send data between client and server)
+[x] get endpoints
+    [x] get koala info to database and send to client
+[alex] post endpoints
+    [alex] POST koala to database (receive and send data between client and server)
 
 
 ///// STRETCH MODE ///////

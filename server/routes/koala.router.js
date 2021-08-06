@@ -20,7 +20,7 @@ router.get('/', (req, res) => {
     pool.query(sqlQuery)
     .then((dbRes) => {
         console.log(dbRes.rows);
-        res.send(dbRes.rows)
+        res.send(dbRes.rows);
     }).catch((err) => {
         console.log('SQL failed', err)
         res.sendStatus(500);
@@ -32,7 +32,7 @@ router.get('/', (req, res) => {
 
 
 // PUT
-koalaRouter.put('/', (req, res) => {
+router.put('/', (req, res) => {
         console.log(req.params.id);
         console.log(req.body.name);
         const sqlQuery = `
