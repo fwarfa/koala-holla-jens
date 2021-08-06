@@ -27,7 +27,6 @@ router.get('/', (req, res) => {
     })
 });
 
-
 // POST
 router.post('/', (req, res) => {
     let inputDetails = req.body;
@@ -47,29 +46,26 @@ router.post('/', (req, res) => {
   });
 
 // PUT
-router.put('/', (req, res) => {
-        console.log(req.params.id);
-        console.log(req.body.name);
-        const sqlQuery = `
-        UPDATE "koala"
-        SET "name" = $1
-        WHERE "id" = $2
-        
+
+router.put('/:id', (req,res) => {
+    let sqlQuery = `
+        UPDATE "koala" 
+        SET "ready_for_transfer" = $1
+        WHERE "ready_for_transfer" = $2
     `;
-    const sqlParams = [
-        req.body.name,    //$1      
-        req.params.id     //$2      
+    let sqlParams = [
+        true,
+        req.body.id
     ];
     pool.query(sqlQuery, sqlParams)
         .then((dbRes) => {
             res.sendStatus(200);
         })
         .catch((err) => {
-            console.log('UPDATE err', err);
+            console.log('PUT err', err);
             res.sendStatus(500);
         })
 })
-
 
 // DELETE
 
