@@ -1,11 +1,11 @@
 const express = require('express');
-const koalaRouter = express.Router();
+const router = express.Router();
 const pg = require('pg');
 
 // DB CONNECTION
 pool = new pg.Pool({
     database: "koala",
-    host: 'localhost',
+    host: 'Localhost',
     port: 5432,
     max: 20,
     idleTimeoutMillis: 4500
@@ -55,4 +55,4 @@ koalaRouter.put('/', (req, res) => {
 
 // DELETE
 
-module.exports = koalaRouter;
+module.exports = router;
