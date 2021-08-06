@@ -55,6 +55,7 @@ function readyToTransfer() {
     url: `/koalas/${id}`
   }).then((res) => {
     console.log('Succesfully updated the koala.', res);
+    getKoalas();
   }).catch((error) => {
     console.log('/PUT request failed: ', error);
     alert('Check console for error. PUT request failed.')
