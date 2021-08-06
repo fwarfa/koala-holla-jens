@@ -16,16 +16,33 @@ function setupClickListeners() {
     // NOT WORKING YET :(
     // using a test object
     let koalaToSend = {
-      name: 'testName',
-      age: 'testName',
-      gender: 'testName',
-      readyForTransfer: 'testName',
-      notes: 'testName',
+      name: $("#nameIn").val(),
+      age: $("#ageIn").val(),
+      gender: $("#genderIn").val(),
+      readyForTransfer: $("#readyForTransferIn").val(),
+      notes: $("#notesIn").val()
     };
     // call saveKoala with the new obejct
     saveKoala( koalaToSend );
   }); 
 }
+
+function saveKoala(input){
+  // ajax call to server to get koalas
+  $.ajax({
+    method: 'POST',
+    url: '/koalas',
+    data: input 
+  }).then(function(response) {
+    // console.log("koala client side resp", response);
+    //reload the new koalas
+    getKoalas();
+  }).catch(function(error) {
+    console.log('error in koala side post', error); 
+    alert('Error adding koala. Please try again later.')       
+  });
+  };
+
 
 function getKoalas(){
   console.log( 'in getKoalas' );
@@ -35,7 +52,8 @@ function getKoalas(){
     url: '/koalas'
   })
   .then(function (response){
-    console.log('get response is ');
+    // empty the DOM before reappending
+    $("#viewKoalas").empty();
     // append to DOM
     for (let i = 0; i < response.length; i++) {
       $('#viewKoalas').append(`
@@ -53,20 +71,4 @@ function getKoalas(){
   
 } // end getKoalas
 
-function saveKoala( newKoala ){
-  console.log( 'in saveKoala', newKoala );
-  // ajax call to server to get koalas
-  $.ajax({
-    method: 'POST',
-    url: '/koalas',
-    data: koalaToSend
-  }).then(function(response) {
-    console.log("koala client side resp", response);
-    //reload the new koalas
-    getKoalas();
-  }).catch(function(error) {
-    console.log('error in artist post', error); 
-    alert('Error adding koala. Please try again later.')       
-  });
-  };
 
