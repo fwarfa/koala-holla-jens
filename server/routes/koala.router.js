@@ -32,7 +32,7 @@ router.get('/', (req, res) => {
 
 
 // PUT
-koalaRouter.put('/', (req, res) => {
+router.put('/', (req, res) => {
         console.log(req.params.id);
         console.log(req.body.name);
         const sqlQuery = `
@@ -55,6 +55,10 @@ koalaRouter.put('/', (req, res) => {
         })
 })
 
+router.put('/', (req,res) => {
+    console.log('req params id', req.params.id);
+    console.log('req body name', req.body.name);
+})
 
 // DELETE
 
