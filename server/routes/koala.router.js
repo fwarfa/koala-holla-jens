@@ -5,7 +5,7 @@ const pg = require('pg');
 // DB CONNECTION
 pool = new pg.Pool({
     database: "koala",
-    host: 'Localhost',
+    host: 'localhost',
     port: 5432,
     max: 20,
     idleTimeoutMillis: 4500
@@ -29,7 +29,22 @@ router.get('/', (req, res) => {
 
 
 // POST
-
+router.post('/', (req, res) => {
+    let inputDetails = req.body;
+    console.log("these are the input details", inputDetails);
+    let sqlQuery = `INSERT INTO "koala"
+    ("name", "age", "gender", "ready_for_transfer", "notes") 
+     VALUES ('${req.body.name}', '${req.body.age}', '${req.body.gender}', '${req.body.readyForTransfer}', '${req.body.notes}');`
+     pool.query(sqlQuery)
+     .then((result) => {
+        res.sendStatus(201);
+     })
+     .catch((err) => {
+         console.log("we caught an error", err)
+         res.sendStatus(500);
+     })
+  
+  });
 
 // PUT
 router.put('/', (req, res) => {
